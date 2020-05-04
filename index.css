@@ -1,0 +1,40 @@
+html{
+    
+    font-family: "Sawarabi Gothic"; 
+}
+header{
+    text-align: center;
+    background: linear-gradient(#deb887, #f5deb3);
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 50px;
+    font-size: larger;
+    box-shadow: 5px 5px 5px gray;
+}
+.main{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+th,td{
+    text-align: center;
+    padding: 10px;
+}
+th{
+    white-space: nowrap;
+    border-left:1px solid #deb887;
+    border-top:1px solid #deb887;
+    border-bottom:1px solid #deb887;
+    background: #f5deb3;
+}
+td{
+    word-wrap: break-word;
+    padding-right: 40px;
+    padding-left: 40px;
+    background: #ffe4e1;
+    border: 1px solid #cd853f;
+}
+table{
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 2px 2px 2px gray;
+}

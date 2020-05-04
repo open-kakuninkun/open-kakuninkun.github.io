@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オープン確認くん(ブラウザ情報のみ)</title>
+</head>
+<body>
+    <header>オープン確認くん(ブラウザ情報のみ)</header>
+    <div class="main">
+        <div class="description">オープンソース版の確認くんです。
+        なお、すべてJavaScriptで動作していますので、IPアドレスなどの検出はできません。<br>
+        IPアドレス取得等に対応したオープン確認くん(PHP版)は近日ダウンロード可能になる予定です。</div>
+    <table border="0">
+        <tr>
+            <th>JavaScriptの状態</th>
+            <td id="jscript"><noscript>無効のため、以下の情報も検出できませんでした</noscript></td>
+        </tr>
+        <tr>
+            <th>現在時刻</th>
+            <td id="now">取得できません</td>
+        </tr>
+        <tr>
+            <th>このページの最終更新日</th>
+            <td id="mod">取得できません</td>
+        </tr>
+        <tr>
+            <th>お使いのブラウザ</th>
+            <td id="browser">取得できません</td>
+        </tr>
+        <tr>
+            <th>ブラウザのバージョン</th>
+            <td id="version">取得できません</td>
+        </tr>
+        <tr>
+            <th>お使いのシステム</th>
+            <td id="os">取得できません</td>
+        </tr>
+        <tr>
+            <th>どこのサイトから来たか</th>
+            <td id="ref">取得できません</td>
+        </tr>
+        <tr>
+            <th>ユーザエージェント(フル)</th>
+            <td id="ua">取得できません</td>
+        </tr>
+        <tr>
+            <th>画面の大きさ</th>
+            <td id="size">取得できません</td>
+        </tr>
+        <tr>
+            <th>現在のブラウザのウィンドウサイズ</th>
+            <td id="px">取得できません</td>
+        </tr>
+        
+    </table>
+    </div>
+    <script src="platform.js"></script>
+    <script>
+        var plat = platform.name;
+        var version = platform.version;
+        var osString = platform.os.toString();
+        var ref = document.referrer;
+        var mod = document.lastModified;
+        var date = new Date(mod);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var date_sub = date.getDate();
+        var hour = date.getHours();
+        var minutes = date.getMinutes();
+        var second = date.getSeconds();
+        setInterval(refresh,1000)
+        function refresh(){
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var date_sub = date.getDate();
+        var hour = date.getHours();
+        var minutes = date.getMinutes();
+        var second = date.getSeconds();
+        document.getElementById("now").innerHTML = year + "年" 
+                                                       + month + "月"
+                                                       + date_sub + "日"
+                                                       + hour + "時"
+                                                       + minutes + "分"
+                                                       + second + "秒";
+        }
+        onload = show;
+        onresize = setPx;
+        function show(){
+            document.getElementById("jscript").innerHTML = "有効です";
+            document.getElementById("browser").innerHTML = plat;
+            document.getElementById("version").innerHTML = version;
+            document.getElementById("os").innerHTML = osString;
+            if(ref == ""){
+                ref = "データがありません";
+            }
+            document.getElementById("ref").innerHTML = ref;
+            document.getElementById("ua").innerHTML = navigator.userAgent;
+            document.getElementById("mod").innerHTML = year + "年" 
+                                                       + month + "月"
+                                                       + date_sub + "日"
+                                                       + hour + "時"
+                                                       + minutes + "分"
+                                                       + second + "秒";
+            document.getElementById("size").innerHTML = "幅:" + screen.width + "ピクセル" + 
+                                                        "、高さ:" + screen.height + "ピクセル" ;
+            setPx();
+            
+        }
+        function setPx(){
+            document.getElementById("px").innerHTML = "幅:" + window.innerWidth + "ピクセル" + 
+                                                      "、高さ:" + window.innerHeight + "ピクセル";
+                                                      
+        }
+    </script>
+</body>
+</html>
