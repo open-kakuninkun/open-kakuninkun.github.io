@@ -5,15 +5,23 @@ html{
 header{
     text-align: center;
     background: linear-gradient(#deb887, #f5deb3);
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 30px;
     margin-bottom: 50px;
     font-size: larger;
     box-shadow: 5px 5px 5px gray;
 }
+.description{
+    width: 800px;
+    height: 90px;
+    margin-right: auto;
+    margin-left: auto;
+}
 .main{
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 th,td{
     text-align: center;
