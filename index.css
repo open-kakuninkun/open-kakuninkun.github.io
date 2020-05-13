@@ -64,7 +64,14 @@ td, th, tr {
   font-size: 1.05em;
 } 
 table{
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
+}
+@media(max-width:380px){
+.description{
+  font-size: 1.1em;
+  height: 185px;
+  overflow: hidden;
+}
 }
