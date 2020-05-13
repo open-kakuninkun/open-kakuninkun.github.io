@@ -57,7 +57,7 @@ header{
 .description{
   font-size: 1.1em;
 }
-table, td, th, tr {
+td, th, tr {
   display: block;
   font-size: 1.05em;
 } 
