@@ -107,10 +107,13 @@
             document.getElementById("browser").innerHTML = plat;
             document.getElementById("version").innerHTML = version;
             document.getElementById("os").innerHTML = osString;
+            var dom_ref = document.getElementById("ref");
             if(ref == ""){
                 ref = "データがありません";
+                dom_ref.innerHTML =ref;
+            }else{
+                dom_ref.innerHTML = "<a href=\"" + ref +"\">" + ref + "</a>";
             }
-            document.getElementById("ref").innerHTML = ref;
             document.getElementById("ua").innerHTML = navigator.userAgent;
             document.getElementById("mod").innerHTML = year + "年" 
                                                        + month + "月"
