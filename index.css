@@ -56,6 +56,8 @@ header{
 }
 .description{
   font-size: 1.1em;
+  height: 130px;
+  overflow: hidden;
 }
 td, th, tr {
   display: block;
