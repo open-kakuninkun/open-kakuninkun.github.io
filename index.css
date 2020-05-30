@@ -21,6 +21,7 @@ caption{
     height: 90px;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 20px;
 }
 .main{
     margin-left: auto;
@@ -45,7 +46,6 @@ td{
     border: 1px solid #cd853f;
 }
 table{
-    margin-top: 20px;
     border-collapse: collapse;
     box-shadow: 2px 2px 2px gray;
 }
