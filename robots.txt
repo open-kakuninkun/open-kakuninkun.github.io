@@ -1,3 +1,4 @@
 User-agent : * 
 Disallow: LICENSE
 Disallow: README.md
+Sitemap: https://open-kakuninkun.github.io/sitemap.xml
