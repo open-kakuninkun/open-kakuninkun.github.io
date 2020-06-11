@@ -29,7 +29,7 @@
         <caption>あなたの情報</caption>
         <tr>
             <th>JavaScriptの状態</th>
-            <td id="jscript"><noscript>無効のため、以下の情報も検出できませんでした</noscript></td>
+            <td id="jscript" style="color: red;"><noscript>無効のため、以下の情報も検出できませんでした</noscript></td>
         </tr>
         <tr>
             <th>現在時刻</th>
@@ -106,7 +106,9 @@
         onload = show;
         onresize = setPx;
         function show(){
-            document.getElementById("jscript").innerHTML = "有効です";
+            var jscript = document.getElementById("jscript");
+            jscript.innerHTML = "有効です"
+            jscript.style.color = "blue";
             document.getElementById("browser").innerHTML = plat;
             document.getElementById("version").innerHTML = version;
             document.getElementById("os").innerHTML = osString;
