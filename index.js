@@ -61,16 +61,13 @@ var plat = platform.name;
                                                       
         }
         function getGlobalData(){
-            $.getJSON('http://ip-api.com/json?callback=?', function(data) {
-            if(data.status == "success"){
-            var ip = data.query;
-            var country = data.country;
-            var countryCode = data.countryCode;
-            var regionName = data.regionName;
+            $.getJSON('https://ipapi.co/json/', function(data) {
+            var ip = data.ip;
+            var country = data.country_name;
+            var countryCode = data.country;
+            var regionName = data.region;
             var city = data.city;
-            var postNumber = data.zip;
             var timezone = data.timezone;
-            var isp = data.isp;
             var organization = data.org;
             var dom_ip = document.getElementById("ip");
             dom_ip.innerHTML = ip;
@@ -80,10 +77,7 @@ var plat = platform.name;
             document.getElementById("countryCode").innerHTML = countryCode;
             document.getElementById("regionName").innerHTML = regionName;
             document.getElementById("city").innerHTML = city;
-            document.getElementById("postNumber").innerHTML = postNumber;
             document.getElementById("timezone").innerHTML = timezone;
-            document.getElementById("isp").innerHTML = isp;
             document.getElementById("organization").innerHTML = organization;
-            }
             });
         }
