@@ -22,10 +22,9 @@ caption{
 }
 .description{
     width: 100%;
-    height: 90px;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 .main{
     padding-top: 50px;
@@ -63,7 +62,7 @@ header{
 .description{
   font-size: 1.1em;
   height: 130px;
-  overflow: hidden;
+  margin-bottom:80px;
 }
 td, th, tr {
   display: block;
@@ -77,7 +76,7 @@ table{
 @media(max-width:380px){
 .description{
   font-size: 1.1em;
+  margin-bottom: 80px;
   height: 185px;
-  overflow: hidden;
 }
 }
