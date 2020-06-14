@@ -52,10 +52,38 @@ var plat = platform.name;
             document.getElementById("size").innerHTML = "幅:" + screen.width + "ピクセル" + 
                                                         "、高さ:" + screen.height + "ピクセル" ;
             setPx();
+            getGlobalData();
             
         }
         function setPx(){
             document.getElementById("px").innerHTML = "幅:" + window.innerWidth + "ピクセル" + 
                                                       "、高さ:" + window.innerHeight + "ピクセル";
                                                       
+        }
+        function getGlobalData(){
+            $.getJSON('http://ip-api.com/json?callback=?', function(data) {
+            if(data.status == "success"){
+            var ip = data.query;
+            var country = data.country;
+            var countryCode = data.countryCode;
+            var regionName = data.regionName;
+            var city = data.city;
+            var postNumber = data.zip;
+            var timezone = data.timezone;
+            var isp = data.isp;
+            var organization = data.org;
+            var dom_ip = document.getElementById("ip");
+            dom_ip.innerHTML = ip;
+            dom_ip.style.color = "blue";
+            dom_ip.style.fontSize = "x-large";
+            document.getElementById("country").innerHTML = country;
+            document.getElementById("countryCode").innerHTML = countryCode;
+            document.getElementById("regionName").innerHTML = regionName;
+            document.getElementById("city").innerHTML = city;
+            document.getElementById("postNumber").innerHTML = postNumber;
+            document.getElementById("timezone").innerHTML = timezone;
+            document.getElementById("isp").innerHTML = isp;
+            document.getElementById("organization").innerHTML = organization;
+            }
+            });
         }
