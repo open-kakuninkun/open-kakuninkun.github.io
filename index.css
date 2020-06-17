@@ -15,7 +15,9 @@ header{
     margin-bottom: 40px;
     font-size: larger;
     box-shadow: 1px 0 5px gray;
-    color: dimgray
+    color: dimgray;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 caption{
     font-weight: bold;
