@@ -53,12 +53,11 @@ var plat = platform.name;
                                                         "、高さ:" + screen.height + "ピクセル" ;
             setPx();
             getGlobalData();
-            
+            loadEnd();
         }
         function setPx(){
             document.getElementById("px").innerHTML = "幅:" + window.innerWidth + "ピクセル" + 
-                                                      "、高さ:" + window.innerHeight + "ピクセル";
-                                                      
+                                                      "、高さ:" + window.innerHeight + "ピクセル";                                            
         }
         function getGlobalData(){
             $.getJSON('https://ipapi.co/json/', function(data) {
