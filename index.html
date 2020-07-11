@@ -13,8 +13,16 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-163987310-3');
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+        console.log('ServiceWorker scope:', registration.scope);
+        }).catch(function(err) {
+        console.log('ServiceWorker failed:', err);
+        });
+}
     </script>
     <script src="loader.js"></script>
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="canonical" href="https://open-kakuninkun.github.io">

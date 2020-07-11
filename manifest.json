@@ -1,0 +1,16 @@
+{
+    "name": "オープン確認くん",
+    "short_name": "オープン確認くん",
+    "description": "あなたのIPアドレスなどを表示します",
+    "icons": [
+        {
+            "src": "images/kakuninkun.png",
+            "sizes": "200x200",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "theme_color": "#dff0d8",
+    "background_color": "#dff0d8"
+}
