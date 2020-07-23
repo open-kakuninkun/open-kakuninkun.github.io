@@ -22,6 +22,7 @@
     <script src="loader.js"></script>
     <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="canonical" href="https://open-kakuninkun.github.io">
     <link rel="shortcut icon" href="favicon.ico">
@@ -30,7 +31,11 @@
     <meta content="オープン確認くんは、あなたの情報を確認できるツールで、オープンソースで開発されています。ダウンロード版も利用可能になる予定ですので、インストールすればより情報を簡単に確認できます。" name="description">
     <title>ご利用環境の確認ツール「オープン確認くん」</title>
 <body>
-    <header><div id="logo-image" translate="no">オープン確認くん</div></header>
+    <header><div id="logo-image" translate="no">オープン確認くん</div>
+    <div id="github-link">
+    <a href="https://github.com/open-kakuninkun/open-kakuninkun.github.io">GitHub</a>
+    </div>
+    </header>
     <div class="wrapper">
     <div class="loading-sign">
       <img src="images/kakuninkun.png" alt="オープン確認くん" id="kakuninkun-logo">
@@ -40,7 +45,7 @@
     <script>
         loadStart();
     </script>
-    <div class="main">
+    <main class="main">
     <table>
         <caption>あなたの情報</caption>
         <tr>
@@ -113,9 +118,13 @@
         </tr>
         
     </table>
-    </div>
+    </main>
     <footer>
-    このソフトウェアはオープンソースです。&nbsp;|&nbsp;<a href="https://github.com/open-kakuninkun/open-kakuninkun.github.io">GitHubで見る</a>
+    <ul class="footer-menu">
+        <li><a href="https://github.com/open-kakuninkun/open-kakuninkun.github.io/issues">バグを報告</a></li>
+        <li><a href="https://enjoysoftware.hatenablog.com">作者のブログ</a></li>
+    </ul>
+    <small>(C) 2020 オープン確認くん Creator All rights reserved.</small>
     </footer>
     <script src="platform.js"></script>
     <script src="index.js"></script>
