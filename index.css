@@ -46,10 +46,10 @@ body{
     transition: all, 500ms;
 }
 #github-link a:hover{
-    background-color: white;
+    background-color: rgba(255,255,255,0.6);
 }
 #github-link a:active{
-    background-color: gainsboro;
+    background-color: rgba(220,220,220,0.6);
 }
 #kakuninkun-logo{
     display: none;
