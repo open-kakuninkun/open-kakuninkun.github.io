@@ -144,3 +144,8 @@ table{
 }
 
 }
+@media(max-width:400px){
+footer{
+ height: 70px;
+}
+}
