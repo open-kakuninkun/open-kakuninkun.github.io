@@ -53,6 +53,7 @@ var plat = platform.name;
                                                         "、高さ:" + screen.height + "ピクセル" ;
             setPx();
             getGlobalData();
+            cookieCheck();
             loadEnd();
         }
         function setPx(){
@@ -80,3 +81,17 @@ var plat = platform.name;
             document.getElementById("organization").innerHTML = organization;
             });
         }
+        function cookieCheck(){
+            var cookie_enabled = document.getElementById("cookie_enabled");
+            Cookies.set("open-kakuninkun-check","ok",{expires: 1});
+            if(Cookies.get("open-kakuninkun-check") == "ok"){
+               var cookie_enabled = document.getElementById("cookie_enabled");
+               cookie_enabled.innerHTML = "有効です";
+               cookie_enabled.style.color = "blue";
+            }else{
+               cookie_enabled.innerHTML = "無効です";
+               cookie_enabled.style.color = "red";
+            }
+            Cookies.remove("open-kakuninkun-check");
+            }
+ 
