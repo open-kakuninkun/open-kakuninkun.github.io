@@ -116,6 +116,9 @@ footer{
     width: 100%;
     height: 50px;
 }
+.footer-menu {
+    text-align: center;
+}
 .footer-menu li{
     list-style: none;
     border-bottom: 4px solid #cd853f;
