@@ -76,6 +76,7 @@ var plat = platform.name;
                 document.getElementById("timezone").innerHTML = timezone;
                 document.getElementById("organization").innerHTML = organization;
             });
+            $(".load").html("読み込み中です。お待ちください。");
             $.getJSON("https://open-kakuninkun.herokuapp.com/")
             .done(function(data){
                 var ip = data.ip;
@@ -90,6 +91,8 @@ var plat = platform.name;
             })
             .fail(function(){
                 console.error("オープン確認くんサーバーとの通信エラー。");
+                $(".load").html("オープン確認くんのサーバーとの通信エラーが発生しました");
+                $(".load").css("color","red");
             });
         }
         function cookieCheck(){
