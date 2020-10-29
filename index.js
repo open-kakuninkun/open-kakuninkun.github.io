@@ -1,4 +1,4 @@
-var plat = platform.name;
+﻿var plat = platform.name;
         var version = platform.version;
         var osString = platform.os.toString();
         var ref = document.referrer;
@@ -62,7 +62,20 @@ var plat = platform.name;
         }
         function getGlobalData(){
             var country,countryCode,regionName,regionName,timezone,organization;
-            $.getJSON('https://ipapi.co/json/', function(data) {
+            var dom_ip = document.getElementById("ip");
+            var dom_gateway_name = document.getElementById("gateway_name"); // gateway_nameは確認くんサーバーのみで取得可能
+            var err_msg = "オープン確認くんのサーバーとの通信でエラーが発生しました";
+            var err_color = "silver";
+            var ip = "";
+            $(".load").html("読み込み中です。お待ちください。");
+
+            $.ajax({	
+		url:"https://ipapi.co/json/", 
+                type1: "GET", 
+                dataType: "json", 
+                async: false
+		}).done(function(data){
+                ip = data.ip;
                 country = data.country_name;
                 countryCode = data.country;
                 regionName = data.region;
@@ -76,24 +89,29 @@ var plat = platform.name;
                 document.getElementById("timezone").innerHTML = timezone;
                 document.getElementById("organization").innerHTML = organization;
             });
-            $(".load").html("読み込み中です。お待ちください。");
-            $.getJSON("https://open-kakuninkun.herokuapp.com/")
+            $.ajax({
+                url: "https://open-kakuninkun.herokuapp.com/", 
+		type:"GET",		
+		dataType:"json", 
+                async: false
+               })
             .done(function(data){
-                var ip = data.ip;
-                var dom_ip = document.getElementById("ip");
-                var dom_gateway_name = document.getElementById("gateway_name");
-                dom_ip.innerHTML = ip;
-                dom_ip.style.color = "blue";
-                dom_ip.style.fontSize = "x-large";
+                ip = data.ip;
                 dom_gateway_name.innerHTML = data.gateway_name;
-                dom_gateway_name.style.color = "blue";
-                dom_gateway_name.style.fontSize = "x-large";
             })
             .fail(function(){
-                console.error("オープン確認くんサーバーとの通信エラー。");
-                $(".load").html("オープン確認くんのサーバーとの通信エラーが発生しました");
-                $(".load").css("color","red");
+                console.warn("オープン確認くんサーバーとの通信エラー、ipapi.coで取得します");
+                dom_gateway_name.style.color = err_color;
+                dom_gateway_name.innerHTML = err_msg;
             });
+            if(ip != null || ip == ""){
+            dom_ip.innerHTML = ip;
+            dom_ip.style.color = "blue";
+            dom_ip.style.fontSize = "x-large";
+            }else{
+            dom_ip.innerHTML = "取得できませんでした"; 
+            dom_ip.style.color = err_color;
+            }
         }
         function cookieCheck(){
             var cookie_enabled = document.getElementById("cookie_enabled");
