@@ -64,8 +64,10 @@
             var country,countryCode,regionName,regionName,timezone,organization;
             var dom_ip = document.getElementById("ip");
             var dom_gateway_name = document.getElementById("gateway_name"); // gateway_nameは確認くんサーバーのみで取得可能
-            var err_msg = "オープン確認くんのサーバーとの通信でエラーが発生しました";
+            var err_msg = "サーバーとの通信でエラーが発生しました";
             var err_color = "silver";
+            var err_on_ipapi = false;
+            var err_on_heroku = false;
             var ip = "";
             $(".load").html("読み込み中です。お待ちください。");
 
@@ -88,6 +90,11 @@
                 document.getElementById("city").innerHTML = city;
                 document.getElementById("timezone").innerHTML = timezone;
                 document.getElementById("organization").innerHTML = organization;
+            }).fail(function(xhr){
+                err_on_ipapi = true;
+                $(".load").html(err_msg);
+                  console.warn("ipapiとの通信時にエラーが発生しました")
+                $(".load").css("color",err_color);
             });
             $.ajax({
                 url: "https://open-kakuninkun.herokuapp.com/", 
@@ -100,11 +107,12 @@
                 dom_gateway_name.innerHTML = data.gateway_name;
             })
             .fail(function(){
+                err_on_heroku = true;
                 console.warn("オープン確認くんサーバーとの通信エラー、ipapi.coで取得します");
                 dom_gateway_name.style.color = err_color;
                 dom_gateway_name.innerHTML = err_msg;
             });
-            if(ip != null || ip == ""){
+            if(err_on_heroku != true || err_on_ipapi != true){
             dom_ip.innerHTML = ip;
             dom_ip.style.color = "blue";
             dom_ip.style.fontSize = "x-large";
