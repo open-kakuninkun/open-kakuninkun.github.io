@@ -93,7 +93,7 @@
             }).fail(function(xhr){
                 err_on_ipapi = true;
                 $(".load").html(err_msg);
-                  console.warn("ipapiとの通信時にエラーが発生しました")
+                console.warn("ipapiとの通信時にエラーが発生しました");
                 $(".load").css("color",err_color);
             });
             $.ajax({
