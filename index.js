@@ -105,6 +105,8 @@
             .done(function(data){
                 ip = data.ip;
                 dom_gateway_name.innerHTML = data.gateway_name;
+                dom_gateway_name.style.color = "blue";
+                dom_gateway_name.style.fontSize = "x-large";
             })
             .fail(function(){
                 err_on_heroku = true;
