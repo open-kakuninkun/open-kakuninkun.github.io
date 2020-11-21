@@ -149,10 +149,15 @@ td, th, tr {
 table{
   margin-top: 30px;
 }
-
+footer{
+    height: 140px;
 }
-@media(max-width:400px){
+.footer-menu li{
+  display: block;
+}
+}
+/*@media(max-width:400px){
 footer{
  height: 70px;
 }
-}
+}*/
