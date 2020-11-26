@@ -1,4 +1,5 @@
 ﻿var plat = platform.name;
+        var javaString;
         var version = platform.version;
         var osString = platform.os.toString();
         var ref = document.referrer;
@@ -51,6 +52,12 @@
                                                        + second + "秒";
             document.getElementById("size").innerHTML = "幅:" + screen.width + "ピクセル" + 
                                                         "、高さ:" + screen.height + "ピクセル" ;
+            if(navigator.javaEnabled()){
+            javaString = "有効です";
+            }else{
+            javaString = "無効です";
+            }
+            document.getElementById("japplet").innerHTML = javaString;
             setPx();
             getGlobalData();
             cookieCheck();
@@ -98,8 +105,8 @@
             });
             $.ajax({
                 url: "https://open-kakuninkun.herokuapp.com/", 
-		type:"GET",		
-		dataType:"json", 
+		        type:"GET",		
+		        dataType:"json", 
                 async: false
                })
             .done(function(data){
