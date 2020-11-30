@@ -130,7 +130,7 @@
             dom_ip.style.color = err_color;
             }
         }
-function cookieCheck(){
+        function cookieCheck(){
             var cookie_enabled = document.getElementById("cookie_enabled");
             Cookies.set("open-kakuninkun-check","ok",{expires: 1});
             if(Cookies.get("open-kakuninkun-check") == "ok"){
@@ -142,5 +142,5 @@ function cookieCheck(){
                cookie_enabled.style.color = "red";
             }
             Cookies.remove("open-kakuninkun-check");
-}
+            }
  
